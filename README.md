@@ -5,7 +5,7 @@ A Arcade web page application. Project developed so people can have fun with fri
 1. Cloning the repository
 -  `git clone git@github.com:Vincenzofdg/Arcade_Games.git`
 2. Enter in the directory folder
-- `cd Pixel_Art`
+- `cd Arcade_Games`
 3. Iniciate `server.mjs`
 - `node server.mjs`
 
