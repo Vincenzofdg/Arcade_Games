@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Games</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>  
+  <header id="menu">
+    <li>Snake</li>
+    <li>Space Invaders</li>
+  </header>
+
+  <main>
+    <section>
+      <div>
+        <h1 class="board-title">Leader Board</h1>
+        <div class="score">
+          <div class="user"></div>
+          <div class="points"></div>
+        </div>
+      </div>
+
+      <div class="player">
+        <input placeholder="name" id="name" type="text">
+        <h1 id="counter" style="color: rgb(99, 63, 184); font-size: 40px;">0000</h1>
+      </div>
+    </section>
+
+    <canvas id="canvas"></canvas>
+  </main>
+
+<!-- 
+  <ul class="circles">
+    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+  </ul>
+-->
+  <script id="game"></script>
+
+  <script>
+    const scriptGame = document.getElementById('game');
+    const name = document.getElementById('name');
+    const menu = document.getElementById('menu');
+    const games = menu.getElementsByTagName('li')
+    let numOfGames = games.length;
+
+    for (let i = 0; i < numOfGames; i++) {
+      const game = games[i]
+
+      game.addEventListener('click', ({target}) => {
+        for (let i = 0; i < numOfGames; i++) {
+          const toRemove = games[i]
+          toRemove.classList.remove('game-selected');
+        }
+        game.classList.add('game-selected')
+        const newScript = target.innerHTML.replace(' ', '')
+        document.getElementById('canvas').focus();
+        scriptGame.src = `games/${newScript}.js`;
+      })
+
+      name.addEventListener('change', ({ target }) => {
+        const { value } = target;
+        localStorage.setItem( 'x_' + value, value)
+      })
+    }
+  </script>
+</body>
+
+
+</html>
