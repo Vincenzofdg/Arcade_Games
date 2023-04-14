@@ -9,6 +9,10 @@ let food = { x: 0, y: 0 };
 let dx = gridSize;
 let dy = 0;
 
+canvas.width = "200";
+// canvas.height = "210";
+canvas.style.backgroundColor = "black";
+
 // Score
 const playerName = document.getElementById("name");
 const counter = document.getElementById("counter");
